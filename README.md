@@ -1,2 +1,1 @@
-# luos
-Luos: the Unity for robotics - Jump start your Robot
+# Luos: the OS for robotics - Jump start your Robot
