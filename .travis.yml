@@ -1,0 +1,17 @@
+language: rust
+rust:
+  - nightly
+cache: cargo
+
+before_script:
+  - export PATH="$PATH:$HOME/.cargo/bin"
+  - which rustfmt || cargo install rustfmt
+
+script:
+  # Build
+  - cargo build
+  # Lint
+  - cargo build --features "clippy"
+  - cargo fmt -- --write-mode=diff
+  # Test
+  - cargo test

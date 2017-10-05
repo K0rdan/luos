@@ -4,3 +4,4 @@ version = "0.1.0"
 authors = ["Pollen Robotics <contact@pollen-robotics.com>"]
 
 [dependencies]
+clippy = {version = "*", optional = true}
