@@ -9,10 +9,10 @@ const LED_PIN: u8 = 13;
 fn main() {
     let core = luos::Core::new();
 
-    let mut fire_button = Button::new(BUTTON_PIN);
+    let mut fire_button = Button::new("fire_button", BUTTON_PIN);
     core.register(&fire_button);
 
-    let mut disco_led = Led::new(LED_PIN);
+    let mut disco_led = Led::new("disco_led", LED_PIN);
     core.register(&disco_led);
 
     loop {

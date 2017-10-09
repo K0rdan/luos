@@ -7,5 +7,6 @@ mod led;
 pub use module::led::Led;
 
 pub trait Module {
+    fn alias(&self) -> &'static str;
     fn update(&mut self, core: &Core);
 }
