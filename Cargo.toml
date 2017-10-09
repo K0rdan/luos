@@ -1,7 +1,11 @@
 [package]
+authors = ["Pollen Robotics <contact@pollen-robotics.com>"]
 name = "luos"
 version = "0.1.0"
-authors = ["Pollen Robotics <contact@pollen-robotics.com>"]
 
 [dependencies]
-clippy = {version = "*", optional = true}
+rand = "0.3.17"
+
+[dependencies.clippy]
+optional = true
+version = "*"
