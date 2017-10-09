@@ -3,6 +3,20 @@ use luos_core::Core;
 
 use hal;
 
+/// # Push Bouton Module
+/// It provides a pressed method.
+///
+/// ## Examples
+///
+/// ```
+/// extern crate luos;
+///
+/// fn main() {
+///     let pin = 42;
+///     let button = luos::module::Button::new("my_button_alias", pin);
+///     assert!(!button.pressed());
+/// }
+/// ```
 pub struct Button {
     alias: &'static str,
     pin: u8,
