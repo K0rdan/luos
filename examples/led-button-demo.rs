@@ -16,12 +16,14 @@ fn main() {
     core.register(&disco_led);
 
     loop {
+        // App Update Loop
         if fire_button.pressed() {
             disco_led.on();
         } else {
             disco_led.off();
         }
 
+        // Module and Core Update Loop
         fire_button.update(&core);
         disco_led.update(&core);
 
