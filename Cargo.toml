@@ -2,6 +2,7 @@
 authors = ["Pollen Robotics <contact@pollen-robotics.com>"]
 name = "luos"
 version = "0.1.0"
+publish = false
 
 [dependencies]
 rand = "0.3.17"
