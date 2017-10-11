@@ -1,5 +1,4 @@
 use module::Module;
-use luos_core::Core;
 
 use hal;
 
@@ -52,5 +51,4 @@ impl Module for Led {
     fn alias(&self) -> &'static str {
         self.alias
     }
-    fn update(&mut self, _core: &Core) {}
 }

@@ -31,11 +31,6 @@
 //!         } else {
 //!             led.off();
 //!         }
-//!
-//!         button.update(&core);
-//!         led.update(&core);
-//!
-//!         core.update();
 //!     }
 //! }
 //! ```
@@ -51,11 +46,3 @@ pub mod module;
 
 mod random_hal;
 use random_hal as hal;
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}

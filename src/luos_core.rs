@@ -14,6 +14,4 @@ impl Core {
     pub fn register(&self, _module: &Module) {
         _module.alias();
     }
-
-    pub fn update(&self) {}
 }

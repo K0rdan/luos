@@ -1,5 +1,4 @@
 use module::Module;
-use luos_core::Core;
 
 use hal;
 
@@ -14,33 +13,27 @@ use hal;
 /// fn main() {
 ///     let pin = 42;
 ///     let button = luos::module::Button::new("my_button_alias", pin);
-///     assert!(!button.pressed());
+///     if button.pressed() {
+///        // do something
+///     }
 /// }
 /// ```
 pub struct Button {
     alias: &'static str,
     pin: u8,
-    pressed: bool,
 }
 
 impl Button {
     pub fn new(alias: &'static str, pin: u8) -> Button {
-        Button {
-            alias,
-            pin,
-            pressed: false,
-        }
+        Button { alias, pin }
     }
     pub fn pressed(&self) -> bool {
-        self.pressed
+        hal::digital_read(self.pin) != 0
     }
 }
 
 impl Module for Button {
     fn alias(&self) -> &'static str {
         self.alias
-    }
-    fn update(&mut self, _core: &Core) {
-        self.pressed = hal::digital_read(self.pin) != 0;
     }
 }
