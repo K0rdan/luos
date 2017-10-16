@@ -1,6 +1,8 @@
-use module::Module;
+extern crate stm32f0_hal;
 
-use hal;
+use self::stm32f0_hal::gpio;
+
+use module::Module;
 
 /// # Led Module
 /// You can turn the led on and off.
@@ -26,11 +28,13 @@ use hal;
 /// ```
 pub struct Led {
     alias: &'static str,
-    pin: u8,
+    pin: gpio::Pin,
 }
 
 impl Led {
-    pub fn new(alias: &'static str, pin: u8) -> Led {
+    pub fn new(alias: &'static str, pin: gpio::Pin) -> Led {
+        gpio::init(&pin, &gpio::Mode::Output);
+
         Led { alias, pin }
     }
 
@@ -43,7 +47,7 @@ impl Led {
     }
 
     fn set_led(&self, on: bool) {
-        hal::digital_write(self.pin, on as u8);
+        gpio::write(&self.pin, on);
     }
 }
 

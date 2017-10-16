@@ -1,6 +1,8 @@
-use module::Module;
+extern crate stm32f0_hal;
 
-use hal;
+use self::stm32f0_hal::gpio;
+
+use module::Module;
 
 /// # Push Bouton Module
 /// It provides a pressed method.
@@ -20,15 +22,17 @@ use hal;
 /// ```
 pub struct Button {
     alias: &'static str,
-    pin: u8,
+    pin: stm32f0_hal::gpio::Pin,
 }
 
 impl Button {
-    pub fn new(alias: &'static str, pin: u8) -> Button {
+    pub fn new(alias: &'static str, pin: gpio::Pin) -> Button {
+        gpio::init(&pin, &gpio::Mode::Input);
+
         Button { alias, pin }
     }
     pub fn pressed(&self) -> bool {
-        hal::digital_read(self.pin) != 0
+        gpio::read(&self.pin)
     }
 }
 

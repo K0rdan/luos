@@ -1,12 +1,17 @@
 [package]
 authors = ["Pollen Robotics <contact@pollen-robotics.com>"]
 name = "luos"
-version = "0.1.0"
 publish = false
+version = "0.1.0"
 
 [dependencies]
-rand = "0.3.17"
+cortex-m = "0.3.1"
+cortex-m-rt = "0.3.6"
 
 [dependencies.clippy]
 optional = true
 version = "*"
+
+[dependencies.stm32f0_hal]
+git = "https://github.com/pollen/stm32f0/"
+branch = "skeleton-stm32f0_hal"

@@ -3,15 +3,22 @@ rust:
   - nightly
 cache: cargo
 
+addons:
+  apt:
+    sources:
+      - debian-sid
+    packages:
+      - binutils-arm-none-eabi
+
+env:
+  - TARGET=thumbv6m-none-eabi
+
 before_script:
   - export PATH="$PATH:$HOME/.cargo/bin"
-  - which rustfmt || cargo install rustfmt
+  - which xargo || (cd .. && cargo install xargo -f --vers 0.3.8)
+  - rustup component list | grep 'rust-src.*installed' || rustup component add rust-src
+  - which rustfmt || (cd .. && cargo install rustfmt)
 
 script:
-  # Build
-  - cargo build
-  # Lint
-  - cargo build --features "clippy"
+  - xargo build --features "clippy" --target $TARGET
   - cargo fmt -- --write-mode=diff
-  # Test
-  - cargo test
