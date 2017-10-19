@@ -57,3 +57,4 @@ mod luos_core;
 pub use luos_core::Core;
 
 pub mod module;
+pub use module::Module;
