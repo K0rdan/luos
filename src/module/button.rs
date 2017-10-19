@@ -1,6 +1,4 @@
-extern crate stm32f0_hal;
-
-use self::stm32f0_hal::gpio;
+use hal::gpio;
 
 use module::Module;
 
@@ -13,7 +11,7 @@ use module::Module;
 /// extern crate luos;
 ///
 /// fn main() {
-///     let pin = 42;
+///     let pin = luos::hal::gpio::Pin::P12;
 ///     let button = luos::module::Button::new("my_button_alias", pin);
 ///     if button.pressed() {
 ///        // do something
@@ -22,7 +20,7 @@ use module::Module;
 /// ```
 pub struct Button {
     alias: &'static str,
-    pin: stm32f0_hal::gpio::Pin,
+    pin: gpio::Pin,
 }
 
 impl Button {

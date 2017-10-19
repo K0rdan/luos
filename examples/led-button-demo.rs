@@ -1,16 +1,7 @@
-#![feature(used)]
-#![no_std]
-
 extern crate luos;
-extern crate stm32f0_hal;
-
-extern crate cortex_m;
-extern crate cortex_m_rt;
-
-use cortex_m::asm;
 
 use luos::module::{Button, Led};
-use stm32f0_hal::gpio::Pin;
+use luos::hal::gpio::Pin;
 
 const BUTTON_PIN: Pin = Pin::P6;
 const LED_PIN: Pin = Pin::P10;
@@ -32,12 +23,4 @@ fn main() {
             disco_led.off();
         }
     }
-}
-
-#[link_section = ".vector_table.interrupts"]
-#[used]
-static INTERRUPTS: [extern "C" fn(); 240] = [default_handler; 240];
-
-extern "C" fn default_handler() {
-    asm::bkpt();
 }

@@ -1,6 +1,4 @@
-extern crate stm32f0_hal;
-
-use self::stm32f0_hal::gpio;
+use hal::gpio;
 
 use module::Module;
 
@@ -15,7 +13,7 @@ use module::Module;
 /// extern crate luos;
 ///
 /// fn main() {
-///     let pin = 42;
+///     let pin = luos::hal::gpio::Pin::P9;
 ///     let led = luos::module::Led::new("my_led", pin);
 ///
 ///     for _ in 0..5 {

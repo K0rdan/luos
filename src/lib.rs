@@ -11,9 +11,10 @@
 //! extern crate luos;
 //!
 //! use luos::module::{Button, Led, Module};
+//! use luos::hal::gpio::Pin;
 //!
-//! const BUTTON_PIN: u8 = 9;
-//! const LED_PIN: u8 = 13;
+//! const BUTTON_PIN: Pin = Pin::P9;
+//! const LED_PIN: Pin = Pin::P13;
 //!
 //!
 //! fn main() {
@@ -38,6 +39,19 @@
 #![no_std]
 #![cfg_attr(feature = "clippy", feature(plugin))]
 #![cfg_attr(feature = "clippy", plugin(clippy))]
+
+#[cfg(target_arch = "arm")]
+extern crate stm32f0_hal;
+#[cfg(not(target_arch = "arm"))]
+extern crate mockup_hal;
+
+/// Abstract used HAL.
+pub mod hal {
+    #[cfg(target_arch = "arm")]
+    pub use stm32f0_hal::*;
+    #[cfg(not(target_arch = "arm"))]
+    pub use mockup_hal::*;
+}
 
 mod luos_core;
 pub use luos_core::Core;

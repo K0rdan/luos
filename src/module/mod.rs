@@ -1,4 +1,4 @@
-//! # Luos Module
+//! Robus module - abstract hardware device.
 
 mod button;
 pub use module::button::Button;
@@ -27,7 +27,6 @@ pub use module::led::Led;
 ///     }
 /// }
 /// ```
-
 pub trait Module {
     fn alias(&self) -> &'static str;
 }

@@ -4,14 +4,16 @@ name = "luos"
 publish = false
 version = "0.1.0"
 
-[dependencies]
-cortex-m = "0.3.1"
-cortex-m-rt = "0.3.6"
-
 [dependencies.clippy]
 optional = true
 version = "*"
 
-[dependencies.stm32f0_hal]
+[dependencies.mockup_hal]
+git = "https://github.com/pollen/stm32-mockup-hal"
+
+[target.thumbv6m-none-eabi.dependencies]
+cortex-m = "0.3.1"
+cortex-m-rt = "0.3.6"
+
+[target.thumbv6m-none-eabi.dependencies.stm32f0_hal]
 git = "https://github.com/pollen/stm32f0/"
-branch = "skeleton-stm32f0_hal"
