@@ -1,11 +1,5 @@
 //! Robus module - abstract hardware device.
 
-mod button;
-pub use module::button::Button;
-
-mod led;
-pub use module::led::Led;
-
 /// # Module trait for all Luos sensor and effector
 /// All Luos Module should implement this trait.
 ///

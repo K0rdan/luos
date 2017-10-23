@@ -5,36 +5,6 @@
 //! The module abstracts the hardware to provide with a standardized API.
 //!
 //!
-//! A simple core containing a LED and a Button module can be written as:
-//!
-//! ```
-//! extern crate luos;
-//!
-//! use luos::module::{Button, Led, Module};
-//! use luos::hal::gpio::Pin;
-//!
-//! const BUTTON_PIN: Pin = Pin::P9;
-//! const LED_PIN: Pin = Pin::P13;
-//!
-//!
-//! fn main() {
-//!     let core = luos::Core::new();
-//!
-//!     let mut button = Button::new("button", BUTTON_PIN);
-//!     core.register(&button);
-//!
-//!     let mut led = Led::new("led", LED_PIN);
-//!     core.register(&led);
-//!
-//!     for _ in 0..10 {
-//!         if button.pressed() {
-//!             led.on();
-//!         } else {
-//!             led.off();
-//!         }
-//!     }
-//! }
-//! ```
 
 #![no_std]
 #![cfg_attr(feature = "clippy", feature(plugin))]
