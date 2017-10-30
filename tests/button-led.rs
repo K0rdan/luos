@@ -58,6 +58,10 @@ fn register_and_run() {
     let mut led = Led::new("disco_led", gpio::Pin::P10);
     core.register(&led);
 
+    // In a normal example, we will most likely
+    // use an infinite loop there.
+    // Yet, in this test we simply make few loop iterations
+    // to prevent blocking testing.
     for _ in 0..10 {
         if button.pressed() {
             led.on();
