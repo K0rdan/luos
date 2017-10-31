@@ -52,10 +52,10 @@ impl Module for Led {
 fn register_and_run() {
     let core = luos::Core::new();
 
-    let button = Button::new("fire_button", gpio::Pin::P9);
+    let button = Button::new("fire_button", gpio::Pin::PA1);
     core.register(&button);
 
-    let mut led = Led::new("disco_led", gpio::Pin::P10);
+    let mut led = Led::new("disco_led", gpio::Pin::PA5);
     core.register(&led);
 
     // In a normal example, we will most likely
