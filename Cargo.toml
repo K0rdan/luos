@@ -4,6 +4,9 @@ name = "luos"
 publish = false
 version = "0.1.0"
 
+[dev-dependencies]
+rand = "0.3.18"
+
 [dependencies.clippy]
 optional = true
 version = "*"

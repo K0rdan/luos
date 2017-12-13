@@ -1,6 +1,10 @@
 //! Luos driver - abstract hardware device.
 
-/// # Driver trait for all Luos sensor and effector
+mod angle;
+pub use self::angle::AngleSensor;
+
+/// Driver trait for all Luos sensor and effector
+///
 /// All Luos Driver should implement this trait.
 ///
 /// ## Examples
@@ -8,7 +12,6 @@
 ///
 /// ```
 /// extern crate luos;
-///
 ///
 /// pub struct Sonar {
 ///     alias: &'static str,

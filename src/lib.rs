@@ -7,6 +7,7 @@
 //!
 
 #![no_std]
+#![feature(core_float)]
 #![cfg_attr(feature = "clippy", feature(plugin))]
 #![cfg_attr(feature = "clippy", plugin(clippy))]
 
@@ -15,7 +16,8 @@ extern crate mockup_hal as hal;
 #[cfg(target_arch = "arm")]
 extern crate stm32f0_hal as hal;
 
-mod luos_core;
-pub use luos_core::Core;
-
 pub mod driver;
+mod luos_core;
+pub mod units;
+
+pub use luos_core::Core;
