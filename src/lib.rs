@@ -10,10 +10,10 @@
 #![cfg_attr(feature = "clippy", feature(plugin))]
 #![cfg_attr(feature = "clippy", plugin(clippy))]
 
-#[cfg(target_arch = "arm")]
-extern crate stm32f0_hal;
 #[cfg(not(target_arch = "arm"))]
 extern crate mockup_hal;
+#[cfg(target_arch = "arm")]
+extern crate stm32f0_hal;
 
 /// Abstract used HAL.
 pub mod hal {
