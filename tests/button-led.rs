@@ -1,7 +1,12 @@
 extern crate luos;
 
 use luos::Module;
-use luos::hal::gpio;
+#[cfg(not(target_arch = "arm"))]
+extern crate mockup_hal as hal;
+#[cfg(target_arch = "arm")]
+extern crate stm32f0_hal as hal;
+
+use hal::gpio;
 
 struct Button {
     alias: &'static str,
@@ -61,7 +66,7 @@ fn register_and_run() {
     // In a normal example, we will most likely
     // use an infinite loop there.
     // Yet, in this test we simply make few loop iterations
-    // to prevent blocking testing.
+    // to prevent blocking the tests.
     for _ in 0..10 {
         if button.pressed() {
             led.on();

@@ -11,17 +11,9 @@
 #![cfg_attr(feature = "clippy", plugin(clippy))]
 
 #[cfg(not(target_arch = "arm"))]
-extern crate mockup_hal;
+extern crate mockup_hal as hal;
 #[cfg(target_arch = "arm")]
-extern crate stm32f0_hal;
-
-/// Abstract used HAL.
-pub mod hal {
-    #[cfg(target_arch = "arm")]
-    pub use stm32f0_hal::*;
-    #[cfg(not(target_arch = "arm"))]
-    pub use mockup_hal::*;
-}
+extern crate stm32f0_hal as hal;
 
 mod luos_core;
 pub use luos_core::Core;
