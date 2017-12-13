@@ -1,5 +1,3 @@
-//! Standard units used across Luos drivers
-
 use core;
 use core::num::Float;
 
