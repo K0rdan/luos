@@ -16,6 +16,7 @@ extern crate mockup_hal as hal;
 #[cfg(target_arch = "arm")]
 extern crate stm32f0_hal as hal;
 
+pub mod app;
 pub mod driver;
 mod luos_core;
 pub mod units;
