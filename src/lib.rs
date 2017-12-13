@@ -7,8 +7,12 @@
 //!
 
 #![no_std]
+#![feature(alloc)]
 #![cfg_attr(feature = "clippy", feature(plugin))]
 #![cfg_attr(feature = "clippy", plugin(clippy))]
+
+#[macro_use(vec)]
+extern crate alloc;
 
 #[cfg(not(target_arch = "arm"))]
 extern crate mockup_hal;
@@ -28,3 +32,5 @@ pub use luos_core::Core;
 
 pub mod module;
 pub use module::Module;
+
+pub mod monitor;
