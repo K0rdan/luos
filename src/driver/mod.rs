@@ -1,4 +1,8 @@
 //! Luos driver - abstract hardware device.
+//!
+//! A driver purpose is abstracting hardware to expose a standardized API. Driver are thus designed to be modular and can be easily combined with each others, replaced by a similar one, etc.
+//!
+//! A driver is made to be sandboxed and can only access its internal state.
 
 mod angle;
 pub use self::angle::AngleSensor;
