@@ -1,6 +1,6 @@
 //! Luos Core - handles all communication within modules and with other cores.
 
-use module::Module;
+use driver::Driver;
 
 /// Luos Core - handles all communication within modules and with other cores.
 ///
@@ -8,14 +8,12 @@ use module::Module;
 ///
 /// You have to register every local modules to the core.
 ///
-/// Abstracts all communication with the other cores so each module can communicate with the the other modules whether they are local or not. To do that, you simply have to call the update method.
+/// Abstracts all communication with the other cores so each module can communicate with the the other modules whether they are local or not.
 pub struct Core {}
 
 impl Core {
     pub fn new() -> Core {
         Core {}
     }
-    pub fn register(&self, _module: &Module) {
-        _module.alias();
-    }
+    pub fn register(&self, _: &Driver) {}
 }

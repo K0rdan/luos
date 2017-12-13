@@ -1,11 +1,11 @@
 extern crate luos;
 
-use luos::Module;
 #[cfg(not(target_arch = "arm"))]
 extern crate mockup_hal as hal;
 #[cfg(target_arch = "arm")]
 extern crate stm32f0_hal as hal;
 
+use luos::driver::Driver;
 use hal::gpio;
 
 struct Button {
@@ -23,8 +23,8 @@ impl Button {
         self.pin.read()
     }
 }
-impl Module for Button {
-    fn alias(&self) -> &'static str {
+impl Driver for Button {
+    fn alias(&self) -> &str {
         self.alias
     }
 }
@@ -47,8 +47,8 @@ impl Led {
         self.pin.low();
     }
 }
-impl Module for Led {
-    fn alias(&self) -> &'static str {
+impl Driver for Led {
+    fn alias(&self) -> &str {
         self.alias
     }
 }
