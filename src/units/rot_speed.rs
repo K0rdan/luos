@@ -5,7 +5,7 @@ use core::num::Float;
 
 /// Used to represent a rotation speed
 ///
-/// It can be used as radians/secondes or degrees/secondes or trun/secondes. Internally, the rotation speed is stored as radians/secondes.
+/// It can be used as radians/seconds or degrees/seconds or turn/seconds. Internally, the rotation speed is stored as radians/seconds.
 ///
 /// # Examples
 ///
@@ -63,7 +63,6 @@ mod tests {
         let error = d.abs();
         assert!(error < core::f32::EPSILON);
 
-        let mut rng = rand::thread_rng();
         let d: f32 = Range::new(-2.0, 2.0).ind_sample(&mut rng);
 
         let a = RotSpeed::from_turns_per_sec(d);
@@ -72,7 +71,6 @@ mod tests {
         let error = d.abs();
         assert!(error < core::f32::EPSILON);
 
-        let mut rng = rand::thread_rng();
         let d: f32 = Range::new(-2.0, 2.0).ind_sample(&mut rng);
 
         let a = RotSpeed::from_turns_per_sec(d);
