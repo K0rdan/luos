@@ -10,6 +10,9 @@ pub use self::angle::AngleSensor;
 mod power;
 pub use self::power::PowerControl;
 
+mod rot_speed;
+pub use self::rot_speed::RotSpeedSensor;
+
 /// Driver trait for all Luos sensor and effector
 ///
 /// All Luos Driver should implement this trait.
