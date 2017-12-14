@@ -1,4 +1,6 @@
 use core;
+
+#[cfg(target_arch = "arm")]
 use core::num::Float;
 
 /// Used to represent a rotation speed

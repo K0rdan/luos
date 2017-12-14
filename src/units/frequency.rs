@@ -1,6 +1,3 @@
-use core;
-use core::num::Float;
-
 /// Used to represent a frequency
 ///
 /// It can be used as second or Hz. Internally, the frequency is stored as Hz.
@@ -43,6 +40,7 @@ impl Frequency {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use core;
 
     extern crate rand;
     use self::rand::distributions::{IndependentSample, Range};
