@@ -31,7 +31,6 @@ mod tests {
     extern crate rand;
     use self::rand::Rng;
 
-
     #[test]
     fn create_point() {
         let mut rng = rand::thread_rng();
