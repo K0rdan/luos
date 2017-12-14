@@ -13,6 +13,9 @@ pub use self::power::PowerControl;
 mod rot_speed;
 pub use self::rot_speed::RotSpeedSensor;
 
+mod frequency;
+pub use self::frequency::FrequencyControl;
+
 /// Driver trait for all Luos sensor and effector
 ///
 /// All Luos Driver should implement this trait.
