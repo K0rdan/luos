@@ -3,9 +3,9 @@
 mod angle;
 mod point;
 mod rot_speed;
-mod frequency;
+mod time;
 
 pub use self::angle::Angle;
 pub use self::point::Point2D;
 pub use self::rot_speed::RotSpeed;
-pub use self::frequency::Frequency;
+pub use self::time::{Frequency, Period};
