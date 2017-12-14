@@ -7,6 +7,9 @@
 mod angle;
 pub use self::angle::AngleSensor;
 
+mod power;
+pub use self::power::PowerControl;
+
 /// Driver trait for all Luos sensor and effector
 ///
 /// All Luos Driver should implement this trait.
