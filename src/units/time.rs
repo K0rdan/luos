@@ -25,6 +25,10 @@ impl Frequency {
 
         Frequency(f)
     }
+    /// Convert to Period
+    pub fn to_period(&self) -> Period {
+        Period(1.0 / self.as_hz())
+    }
     /// Get the Frequency value as Hz
     pub fn as_hz(&self) -> f32 {
         self.0
@@ -53,6 +57,10 @@ impl Period {
         assert!(s.is_sign_positive());
         Period(s)
     }
+    /// Convert to frequency
+    pub fn to_frequency(&self) -> Frequency {
+        Frequency(1.0 / self.as_seconds())
+    }
     /// Get the Period value in seconds
     pub fn as_seconds(&self) -> f32 {
         self.0
@@ -69,13 +77,13 @@ impl Period {
 
 impl Into<Period> for Frequency {
     fn into(self) -> Period {
-        Period::from_seconds(1.0 / self.as_hz())
+        self.to_period()
     }
 }
 
 impl Into<Frequency> for Period {
     fn into(self) -> Frequency {
-        Frequency::from_hz(1.0 / self.as_seconds())
+        self.to_frequency()
     }
 }
 
@@ -88,6 +96,18 @@ mod tests {
 
     #[test]
     fn freq_to_period() {
+        let mut rng = rand::thread_rng();
+        let s: f32 = Range::new(0.0, 1000.0).ind_sample(&mut rng);
+
+        let p = Period::from_seconds(s);
+        let f = p.to_frequency();
+        let p = f.to_period();
+
+        assert!((p.as_seconds() - s).abs() < 1e-4);
+    }
+
+    #[test]
+    fn convert_using_into() {
         let mut rng = rand::thread_rng();
         let s: f32 = Range::new(0.0, 1000.0).ind_sample(&mut rng);
 
