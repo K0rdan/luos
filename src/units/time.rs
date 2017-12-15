@@ -69,7 +69,7 @@ impl Period {
     pub fn as_millis(&self) -> f32 {
         self.0 * 1000.0
     }
-    /// Get the Period value in microsecond
+    /// Get the Period value in microseconds
     pub fn as_micros(&self) -> f32 {
         self.0 * 1000000.0
     }

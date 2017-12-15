@@ -19,27 +19,27 @@ use core::num::Float;
 #[derive(Debug)]
 pub struct RotSpeed(f32);
 impl RotSpeed {
-    /// Create an RotSpeed from its value in radians/secondes
+    /// Create an RotSpeed from its value in radians/seconds
     pub fn from_radians_per_sec(r: f32) -> Self {
         RotSpeed(r)
     }
-    /// Create an RotSpeed from its value in degrees/secondes
+    /// Create an RotSpeed from its value in degrees/seconds
     pub fn from_degrees_per_sec(d: f32) -> Self {
         RotSpeed(d.to_radians())
     }
-    /// Create an RotSpeed from its value in turns/secondes
+    /// Create an RotSpeed from its value in turns/seconds
     pub fn from_turns_per_sec(d: f32) -> Self {
         RotSpeed(d * (2.0 * core::f32::consts::PI))
     }
-    /// Convert the RotSpeed value to radians/secondes
+    /// Convert the RotSpeed value to radians/seconds
     pub fn to_radians_per_sec(&self) -> f32 {
         self.0
     }
-    /// Convert the RotSpeed value to degrees/secondes
+    /// Convert the RotSpeed value to degrees/seconds
     pub fn to_degrees_per_sec(&self) -> f32 {
         self.0.to_degrees()
     }
-    /// Convert the RotSpeed value to turns/secondes
+    /// Convert the RotSpeed value to turns/seconds
     pub fn to_turns_per_sec(&self) -> f32 {
         self.0 / (2.0 * core::f32::consts::PI)
     }
