@@ -92,7 +92,7 @@ mod tests {
         let s: f32 = Range::new(0.0, 1000.0).ind_sample(&mut rng);
 
         let p = Period::from_seconds(s);
-        let f = p.into::<Frequency>();
+        let f: Frequency = p.into();
         let p: Period = f.into();
 
         assert!((p.as_seconds() - s).abs() < 1e-4);
