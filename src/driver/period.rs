@@ -6,5 +6,5 @@ use units;
 ///
 pub trait PeriodControl {
     /// Set the control period
-    fn set_period(&self, period: units::Period);
+    fn set_period(&mut self, period: units::Period);
 }
