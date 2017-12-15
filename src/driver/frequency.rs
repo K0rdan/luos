@@ -6,5 +6,5 @@ use units;
 ///
 pub trait FrequencyControl {
     /// Set the control frequency
-    fn set_frequency(ratio: units::Frequency);
+    fn set_frequency(&self, freq: units::Frequency);
 }

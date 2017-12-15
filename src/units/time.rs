@@ -61,6 +61,10 @@ impl Period {
     pub fn as_millis(&self) -> f32 {
         self.0 * 1000.0
     }
+    /// Get the Period value in microsecond
+    pub fn as_micros(&self) -> f32 {
+        self.0 * 1000000.0
+    }
 }
 
 impl Into<Period> for Frequency {
@@ -88,7 +92,7 @@ mod tests {
         let s: f32 = Range::new(0.0, 1000.0).ind_sample(&mut rng);
 
         let p = Period::from_seconds(s);
-        let f: Frequency = p.into();
+        let f = p.into::<Frequency>();
         let p: Period = f.into();
 
         assert!((p.as_seconds() - s).abs() < 1e-4);
