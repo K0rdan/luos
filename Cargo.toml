@@ -3,6 +3,7 @@ authors = ["Pollen Robotics <contact@pollen-robotics.com>"]
 name = "luos"
 publish = false
 version = "0.1.0"
+license = "Apache-2.0"
 
 [dependencies.clippy]
 optional = true
