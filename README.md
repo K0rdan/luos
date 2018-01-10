@@ -2,7 +2,7 @@
 
 
 # Luos: robotic product development made easy
-[![Build Status](https://travis-ci.com/pollen/luos.svg?token=RxFY2cvxnBdyPk3Jevf4&branch=master)](https://travis-ci.com/pollen/luos)
+[![Build Status](https://travis-ci.org/pollen-robotics/luos.svg?branch=master)](https://travis-ci.org/pollen-robotics/luos)
 
 Luos is an end-to-end system to fully orchestrate your robot, all the way from hardware control to high level behaviors and Apps management.
 

@@ -10,11 +10,11 @@ optional = true
 version = "*"
 
 [target.'cfg(not(target_arch = "arm"))'.dependencies.mockup_hal]
-git = "https://github.com/pollen/stm32-mockup-hal"
+git = "https://github.com/pollen-robotics/stm32-mockup-hal"
 
 [target.thumbv6m-none-eabi.dependencies]
 cortex-m = "0.3.1"
 cortex-m-rt = "0.3.6"
 
 [target.thumbv6m-none-eabi.dependencies.stm32f0_hal]
-git = "https://github.com/pollen/stm32f0/"
+git = "https://github.com/pollen-robotics/stm32f0/"
