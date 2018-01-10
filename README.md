@@ -6,23 +6,23 @@
 
 Luos is an end-to-end system to fully orchestrate your robot, all the way from hardware control to high level behaviors and Apps management.
 
-It includes out of the box sensors acquisitions and filtering drivers, advanced motor control for precise and eye-pleasing smooth motion, most commonly used robotic and AI algorithm and so on.
+It includes out of the box sensors acquisitions and filtering, drivers for advanced motor control for precise and eye-pleasing smooth motion. In the future, most commonly used robotic and AI algorithms will also be available.
 
-Its sandboxed multi-layer architectures and elegant APIs allow for efficient and productive programming.
+Its sandboxed multi-layer architectures and elegant APIs allows for efficient and productive programming.
 
 **[more information on our website>>](https://www.luos.io/)**
 
 ## Architecture
 
-Luos is built around 2 main concepts:
-* **drivers** that defined standardized API as Rust traits for common robotics parts (e.g. a servo motor, a position encoder, a distance sensor, etc.). This enforce compatibility amongst drivers and let you seamlessly switch from one actuator/sensor implementation to another one without breaking all the rest of your code. 
-* **core** represents a physical boards and its associated local drivers. It handles automatically the communication with the other cores - and thus the remote drivers - so you can develop your project with modularity.
+Luos is coded in [Rust](https://www.rust-lang.org) and built around 2 main concepts:
+* **drivers** defines standardized API as Rust traits for common robotics parts (e.g. a servo motor, a position encoder, a distance sensor, etc.). This enforces compatibility amongst drivers and let you seamlessly switch from one actuator/sensor implementation to another without breaking the rest of your code. 
+* **core** represents a physical boards and its associated local drivers. It handles automatically the communication with the other cores - and thus the remote drivers - so you can develop your project with a modular approach.
 
 ## Development
 
-Luos is lightweight, it can run on low-cost microcontroller (from ARM Cortex M0).
+Luos is lightweight, it can run on low-cost microcontrollers. 
 
-It is currently developped on STM32F0 µC, you can use the following development board to test and use Luos.
+We currently use the ARM Cortex M0 and develop on STM32F0 µC, you can use the following development board to test and use Luos.
 
 - [Luos L0 (available soon)](https://www.luos.io/)
 - [NUCLEO-F072RB](http://www.st.com/en/evaluation-tools/nucleo-f072rb.html)
