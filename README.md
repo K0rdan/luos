@@ -18,6 +18,34 @@ Luos is coded in [Rust](https://www.rust-lang.org) and built around 2 main conce
 * **drivers** defines standardized API as Rust traits for common robotics parts (e.g. a servo motor, a position encoder, a distance sensor, etc.). This enforces compatibility amongst drivers and let you seamlessly switch from one actuator/sensor implementation to another without breaking the rest of your code. 
 * **core** represents a physical boards and its associated local drivers. It handles automatically the communication with the other cores - and thus the remote drivers - so you can develop your project with a modular approach.
 
+## Example
+
+A typical example of an app developed with Luos will look like this. You can define your own *drivers* based on the pre-defined traits or use already developed ones. Then, they can be easily composed to make complex behaviors.
+
+```rust
+extern crate luos;
+use luos::{AngleEncoder, Motor};
+
+extern crate luos_driver;
+// We use a pre-defined driver for a known motor
+use luos_driver::PololuluServoMotor;
+
+// We define our implementation for our own encoder
+struct MySpecificEncoder { ... }
+impl AngleEncoder for MySpecificEncoder {
+    // The API is standardized by traits
+    // also enforcing units
+    fn get_angle(&self) -> Degrees { ... }
+}
+
+fn main() {
+    let encoder = MySpecificEncoder { pin: hal::GPIO::PA9 };
+    let motor = PololuluServoMotor { pin: hal::GPIO::PB10 };
+
+    asserv::loop(&encoder, &mut motor).run();
+}
+```
+
 ## Development
 
 Luos is lightweight, it can run on low-cost microcontrollers. 
