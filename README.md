@@ -56,6 +56,15 @@ We currently use the ARM Cortex M0 and develop on STM32F0 µC, you can use the f
 - [NUCLEO-F072RB](http://www.st.com/en/evaluation-tools/nucleo-f072rb.html)
 - [32F072BDISCOVERY](http://www.st.com/en/evaluation-tools/32f072bdiscovery.html)
 
+## Join the community
+
+We'd love you to contribute to Luos! 
+
+The robotics community needs people from all backgrounds. We explicitly welcome contributions from people who have never contributed to open-source before: we were all beginners once! We can help build on a partially working pull request with the aim of getting it merged. Please read our [Contribution Guide](.github/contributing.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
+
+You can also contribute by becoming a patron of the project. It will give you exclusive access and content for [a monthly donation](https://www.patreon.com/bePatron?u=9305215).
+
+<a href="https://www.patreon.com/pollenrobotics"> <img src="https://www.luos.io/wp-content/uploads/sites/6/2018/01/patreon-button.png" width="200px"> </a>
 
 ## License
 
