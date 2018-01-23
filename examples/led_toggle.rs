@@ -4,11 +4,10 @@
 // Board: STM32F072B-DISCO
 // Tested on: 16/01/2018
 
-// #![no_std] is needed when compiling for embedded
-// We need to specify to the compiler that we don't want to compile the whole standard library
-// as it's way too big and would not work on our tiny microcontroller.
-
 #![no_std]
+/// #![no_std] is needed when compiling for embedded
+// We need to specify to the compiler that we don't want to compile the whole standard library
+// because it's way too big and would not work on our tiny microcontroller.
 
 // import the luos crate
 // luos contains a hal module (hardware abastraction layer)
@@ -34,7 +33,7 @@ fn main() {
     // `led` is mutable as setting the pin to high or low requires to modify it.
     let mut led = gpio::Output::setup(PIN_LED);
 
-    // in embedded your main program use 100% of the CPU so you have to loops forever
+    // in embedded your program should never end, so we loop forever
     loop {
         // turn led on -> set pin to high
         led.high();

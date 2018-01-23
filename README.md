@@ -18,7 +18,7 @@ Follow our [tutorials](https://pollen-robotics.gitbooks.io/luos/) and go from ze
 
 ## Architecture
 
-Luos is coded in [Rust](https://www.rust-lang.org) and built around 2 main concepts:
+Luos is written in [Rust](https://www.rust-lang.org) and built around 2 main concepts:
 * **drivers** defines standardized API as Rust traits for common robotics parts (e.g. a servo motor, a position encoder, a distance sensor, etc.). This enforces compatibility amongst drivers and let you seamlessly switch from one actuator/sensor implementation to another without breaking the rest of your code.
 * **core** represents a physical boards and its associated local drivers. It handles automatically the communication with the other cores - and thus the remote drivers - so you can develop your project with a modular approach.
 
@@ -55,16 +55,6 @@ fn main() {
     asserv::loop(&encoder, &mut motor).run();
 }
 ```
-
-## Development
-
-Luos is lightweight, it can run on low-cost microcontrollers.
-
-We currently use the ARM Cortex M0 and develop on STM32F0 µC, you can use the following development board to test and use Luos.
-
-- [Luos L0 (available soon)](https://www.luos.io/)
-- [NUCLEO-F072RB](http://www.st.com/en/evaluation-tools/nucleo-f072rb.html)
-- [32F072BDISCOVERY](http://www.st.com/en/evaluation-tools/32f072bdiscovery.html)
 
 ## Join the community
 

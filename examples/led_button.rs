@@ -6,7 +6,9 @@
 
 #![no_std]
 /// #![no_std] is needed when compiling for embedded
-// We need to specify to the compiler that we don't want to compile the whole standard library as it's way too big and would not work on our tiny microcontroller.
+// We need to specify to the compiler that we don't want to compile the whole standard library
+// because it's way too big and would not work on our tiny microcontroller.
+
 
 // import the luos crate
 // luos contains a hal module (hardware abastraction layer)
@@ -32,7 +34,7 @@ fn main() {
     // declare `button` as an input pin on PIN_BUTTON
     let button = gpio::Input::setup(PIN_BUTTON);
 
-    // in embedded your main program use 100% of the CPU so you have to loops forever
+    // in embedded your program should never end, so we loop forever
     loop {
         // read state of the button
         // the read function returns a boolean: True or False
