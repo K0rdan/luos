@@ -16,7 +16,7 @@ extern crate luos;
 use luos::hal::gpio;
 
 // intialize constants for each pin we want to use
-// gpio::Pin contains enums for each pin available on the microprocessor
+// gpio::Pin contains enums for each pin available on the microcontroler
 // on the STM32F072B-DISCO board:
 // - gpio::Pin::PC7 is a led pin
 // - gpio::Pin::PA0 is the user button (the blue one on the board)
@@ -26,13 +26,13 @@ const PIN_BUTTON: gpio::Pin = gpio::Pin::PA0;
 // main() is the start of our program
 fn main() {
     // declare `led` as an output pin on PIN_LED
-    // `led` is mutable: setting the pin to high or low requires to borrow a the variable
+    // `led` is mutable: setting the pin to high or low requires to borrow the variable
     let mut led = gpio::Output::setup(PIN_LED);
 
     // declare `button` as an input pin on PIN_BUTTON
     let button = gpio::Input::setup(PIN_BUTTON);
 
-    // in embedded your main program loops forever
+    // in embedded your main program use 100% of the CPU so you have to loops forever
     loop {
         // read state of the button
         // the read function returns a boolean: True or False
