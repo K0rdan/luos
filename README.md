@@ -14,7 +14,7 @@ Its sandboxed multi-layer architectures and elegant APIs allows for efficient an
 
 ## Getting started
 
-Follow our [tutorials](**TODO**) and go from zero to blinking an Led in Rust in under 30 minutes!
+Follow our [tutorials](https://pollen-robotics.gitbooks.io/luos/) and go from zero to blinking an Led in Rust in under 30 minutes!
 
 ## Architecture
 
@@ -26,7 +26,7 @@ Luos is coded in [Rust](https://www.rust-lang.org) and built around 2 main conce
 
 Luos is lightweight, it can run on low-cost microcontrollers. We currently use the ARM Cortex M0 and develop on STM32F0 µC.
 
-Discover our [development boards](**TODO**) to test and use Luos.
+Discover our [development boards](https://pollen-robotics.gitbooks.io/luos/tutorials/00_development_boards.html) to test and use Luos.
 
 ## Example
 
