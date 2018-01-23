@@ -6,7 +6,7 @@
 
 #![no_std]
 /// #![no_std] is needed when compiling for embedded
-// We need to specify to the compiler that we don't want to compile the whole standard library as it's way too big and would not work on our tiny micro controller.
+// We need to specify to the compiler that we don't want to compile the whole standard library as it's way too big and would not work on our tiny microcontroller.
 
 // import the luos crate
 // luos contains a hal module (hardware abastraction layer)
@@ -16,7 +16,7 @@ extern crate luos;
 use luos::hal::gpio;
 
 // intialize constants for each pin we want to use
-// gpio::Pin contains enums for each pin available on the microcontroler
+// gpio::Pin contains enums for each pin available on the microcontroller
 // on the STM32F072B-DISCO board:
 // - gpio::Pin::PC7 is a led pin
 // - gpio::Pin::PA0 is the user button (the blue one on the board)
