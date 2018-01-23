@@ -68,9 +68,11 @@ We currently use the ARM Cortex M0 and develop on STM32F0 µC, you can use the f
 
 ## Join the community
 
-We'd love you to contribute to Luos!
+We'd love you to join and contribute to Luos!
 
-The robotics community needs people from all backgrounds. We explicitly welcome contributions from people who have never contributed to open-source before: we were all beginners once! We can help build on a partially working pull request with the aim of getting it merged. Please read our [Contribution Guide](.github/contributing.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
+We'd love you to contribute to Luos! You can:
+- join the [Luos forum](https://forum.luos.io/) to ask questions and present your project to the community.
+- work on one of the [call for contributions](.github/call_for_contributions.md) created by the community.
 
 You can also contribute by becoming a patron of the project. It will give you exclusive access and content for [a monthly donation](https://www.patreon.com/bePatron?u=9305215).
 
