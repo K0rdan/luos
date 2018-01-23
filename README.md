@@ -12,11 +12,21 @@ Its sandboxed multi-layer architectures and elegant APIs allows for efficient an
 
 **[more information on our website>>](https://www.luos.io/)**
 
+## Getting started
+
+Follow our [tutorials](**TODO**) and go from zero to blinking an Led in Rust in under 30 minutes!
+
 ## Architecture
 
 Luos is coded in [Rust](https://www.rust-lang.org) and built around 2 main concepts:
-* **drivers** defines standardized API as Rust traits for common robotics parts (e.g. a servo motor, a position encoder, a distance sensor, etc.). This enforces compatibility amongst drivers and let you seamlessly switch from one actuator/sensor implementation to another without breaking the rest of your code. 
+* **drivers** defines standardized API as Rust traits for common robotics parts (e.g. a servo motor, a position encoder, a distance sensor, etc.). This enforces compatibility amongst drivers and let you seamlessly switch from one actuator/sensor implementation to another without breaking the rest of your code.
 * **core** represents a physical boards and its associated local drivers. It handles automatically the communication with the other cores - and thus the remote drivers - so you can develop your project with a modular approach.
+
+## Development
+
+Luos is lightweight, it can run on low-cost microcontrollers. We currently use the ARM Cortex M0 and develop on STM32F0 µC.
+
+Discover our [development boards](**TODO**) to test and use Luos.
 
 ## Example
 
@@ -48,7 +58,7 @@ fn main() {
 
 ## Development
 
-Luos is lightweight, it can run on low-cost microcontrollers. 
+Luos is lightweight, it can run on low-cost microcontrollers.
 
 We currently use the ARM Cortex M0 and develop on STM32F0 µC, you can use the following development board to test and use Luos.
 
@@ -58,7 +68,7 @@ We currently use the ARM Cortex M0 and develop on STM32F0 µC, you can use the f
 
 ## Join the community
 
-We'd love you to contribute to Luos! 
+We'd love you to contribute to Luos!
 
 The robotics community needs people from all backgrounds. We explicitly welcome contributions from people who have never contributed to open-source before: we were all beginners once! We can help build on a partially working pull request with the aim of getting it merged. Please read our [Contribution Guide](.github/contributing.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
 
