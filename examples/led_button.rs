@@ -1,5 +1,5 @@
-// This example demonstrate how to turn an led on/off depending on the state of a button.
-// It demonstrate how to access low level hardware from luos.
+// This example demonstrates how to turn an led on/off depending on the state of a button.
+// It demonstrates how to access low level hardware from luos.
 //
 // Board: STM32F072B-DISCO
 // Tested on: 16/01/2018
