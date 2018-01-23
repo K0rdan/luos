@@ -7,7 +7,7 @@ Below is a list of contribution ranked by priority for the project.
 ### Must have
 
 - installation instructions for Windows environment
-- populate the [glossary](./installation_guide/glossary.md)
+- populate the [glossary](https://github.com/pollen-robotics/luos-documentation/blob/master/installation_guide/glossary.md)
 
 ### Nice to have
 
