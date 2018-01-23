@@ -45,3 +45,7 @@ fn main() {
         rcc::ms_delay(1000);
     }
 }
+
+// Is this example not working? have you seen a mistake or a typo?
+// You can contribute by raising an issue of the problem
+// Or directly submit a pull request to fix this code
