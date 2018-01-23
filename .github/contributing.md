@@ -4,23 +4,20 @@
 
 ## What should I know before I get started?
 
-As of now, the main source of information describing Luos key concepts and their articulation can be found on the [wiki](https://github.com/pollen-robotics/luos/wiki). We try to keep there the documentation up to date.
+Luos is coded in [Rust](https://www.rust-lang.org) and built around 2 main concepts:
 
-The three main Luos concepts are:
-
-* the [Core](https://github.com/pollen-robotics/luos/wiki/Luos-Core) is the instance of Luos running on a board. It handles all the Modules and Apps interactions
-* the set of [Modules](https://github.com/pollen-robotics/luos/wiki/Luos-Module) defining specific abstractions for the hardware access to sensors and actuators.
-* the [Apps](https://github.com/pollen-robotics/luos/wiki/Luos-App) that let users write code on top of the Modules creating some behavior for the robot.
+* **drivers** defines standardized API as Rust traits for common robotics parts (e.g. a servo motor, a position encoder, a distance sensor, etc.). This enforces compatibility amongst drivers and let you seamlessly switch from one actuator/sensor implementation to another without breaking the rest of your code.
+* **core** represents a physical boards and its associated local drivers. It handles automatically the communication with the other cores - and thus the remote drivers - so you can develop your project with a modular approach.
 
 ## How can I contribute?
 
 ### Reporting bugs
 
-The main way to report a bug is by filling an [issue](https://github.com/pollen-robotics/luos/issues). First, please make sure the issue as not already be reported. The [fill out template](./issue_template.md) will guide you on what information will help us fix the bug.
+The main way to report a bug is by filling an [issue](https://github.com/pollen-robotics/luos/issues). First, please make sure the issue is not already reported. The [issue template guide](./issue_template.md) will help you to fill an issue with the information that will help us fix the bug.
 
 ### Did you intend to add a new feature?
 
-If you intend to work on a new feature, the best way is to let us know as soon as possible by opening a Pull Request. Thus, we can discuss if this addition will fit well within Luos and guide you towards this.
+If you intend to work on a new feature, please read the [call for contributions](./call_for_contributions.md). The best way is to let us know as soon as possible by opening a pull request. Thus, we can discuss if this addition will fit well within Luos and guide you towards integrating it.
 
 ## Submitting changes
 

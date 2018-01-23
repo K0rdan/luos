@@ -12,11 +12,21 @@ Its sandboxed multi-layer architectures and elegant APIs allows for efficient an
 
 **[more information on our website>>](https://www.luos.io/)**
 
+## Getting started
+
+Follow our [tutorials](https://pollen-robotics.gitbooks.io/luos/) and go from zero to blinking an Led in Rust in under 30 minutes!
+
 ## Architecture
 
-Luos is coded in [Rust](https://www.rust-lang.org) and built around 2 main concepts:
-* **drivers** defines standardized API as Rust traits for common robotics parts (e.g. a servo motor, a position encoder, a distance sensor, etc.). This enforces compatibility amongst drivers and let you seamlessly switch from one actuator/sensor implementation to another without breaking the rest of your code. 
+Luos is written in [Rust](https://www.rust-lang.org) and built around 2 main concepts:
+* **drivers** defines standardized API as Rust traits for common robotics parts (e.g. a servo motor, a position encoder, a distance sensor, etc.). This enforces compatibility amongst drivers and let you seamlessly switch from one actuator/sensor implementation to another without breaking the rest of your code.
 * **core** represents a physical boards and its associated local drivers. It handles automatically the communication with the other cores - and thus the remote drivers - so you can develop your project with a modular approach.
+
+## Development
+
+Luos is lightweight, it can run on low-cost microcontrollers. We currently use the ARM Cortex M0 and develop on STM32F0 µC.
+
+Discover our [development boards](https://pollen-robotics.gitbooks.io/luos/tutorials/00_development_boards.html) to test and use Luos.
 
 ## Example
 
@@ -46,21 +56,13 @@ fn main() {
 }
 ```
 
-## Development
-
-Luos is lightweight, it can run on low-cost microcontrollers. 
-
-We currently use the ARM Cortex M0 and develop on STM32F0 µC, you can use the following development board to test and use Luos.
-
-- [Luos L0 (available soon)](https://www.luos.io/)
-- [NUCLEO-F072RB](http://www.st.com/en/evaluation-tools/nucleo-f072rb.html)
-- [32F072BDISCOVERY](http://www.st.com/en/evaluation-tools/32f072bdiscovery.html)
-
 ## Join the community
 
-We'd love you to contribute to Luos! 
+We'd love you to join and contribute to Luos!
 
-The robotics community needs people from all backgrounds. We explicitly welcome contributions from people who have never contributed to open-source before: we were all beginners once! We can help build on a partially working pull request with the aim of getting it merged. Please read our [Contribution Guide](.github/contributing.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
+We'd love you to contribute to Luos! You can:
+- join the [Luos forum](https://forum.luos.io/) to ask questions and present your project to the community.
+- work on one of the [call for contributions](.github/call_for_contributions.md) created by the community.
 
 You can also contribute by becoming a patron of the project. It will give you exclusive access and content for [a monthly donation](https://www.patreon.com/bePatron?u=9305215).
 
