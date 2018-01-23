@@ -6,7 +6,7 @@
 
 // #![no_std] is needed when compiling for embedded
 // We need to specify to the compiler that we don't want to compile the whole standard library
-// as it's way too big and would not work on our tiny micro controller.
+// as it's way too big and would not work on our tiny microcontroller.
 
 #![no_std]
 
@@ -19,7 +19,7 @@ extern crate luos;
 use luos::hal::{gpio, rcc};
 
 // intialize constants for the pin we want to use
-// gpio::Pin contains enums for each pin available on the microprocessor
+// gpio::Pin contains enums for each pin available on the microcontroller
 // on the STM32F072B-DISCO board:
 // - gpio::Pin::PC7 is a led pin
 const PIN_LED: gpio::Pin = gpio::Pin::PC7;
@@ -34,7 +34,7 @@ fn main() {
     // `led` is mutable as setting the pin to high or low requires to modify it.
     let mut led = gpio::Output::setup(PIN_LED);
 
-    // in embedded your main program loops forever
+    // in embedded your main program use 100% of the CPU so you have to loops forever
     loop {
         // turn led on -> set pin to high
         led.high();
