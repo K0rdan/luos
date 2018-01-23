@@ -26,7 +26,7 @@ const PIN_BUTTON: gpio::Pin = gpio::Pin::PA0;
 // main() is the start of our program
 fn main() {
     // declare `led` as an output pin on PIN_LED
-    // `led` is mutable: setting the pin to high or low requires to borrow the variable
+    // `led` is mutable as setting the pin to high or low requires to modify it.
     let mut led = gpio::Output::setup(PIN_LED);
 
     // declare `button` as an input pin on PIN_BUTTON

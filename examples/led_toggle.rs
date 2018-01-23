@@ -31,7 +31,7 @@ fn main() {
     rcc::init();
 
     // declare `led` as an output pin on PIN_LED
-    // `led` is mutable: setting the pin to high or low requires to borrow a the variable
+    // `led` is mutable as setting the pin to high or low requires to modify it.
     let mut led = gpio::Output::setup(PIN_LED);
 
     // in embedded your main program loops forever
