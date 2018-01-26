@@ -15,16 +15,16 @@
 // luos::hal::gpio contains specific functions and constants to access, read and write on pins
 // luos::hal::rcc contains function relative to clocks
 extern crate luos;
-use luos::hal::{gpio, rcc, adc, pwm};
+use luos::hal::{rcc, adc, pwm};
 
 // intialize constants for the pin we want to use
-// gpio::Pin contains enums for each pin available on the microcontroller
-// on the STM32F072B-DISCO board:
-// - gpio::Pin::PC7 is a led pin
-const PIN_RED_LED: gpio::Pin = gpio::Pin::PC6;
-const PIN_BLUE_LED: gpio::Pin = gpio::Pin::PC7;
-const PIN_ORANGE_LED: gpio::Pin = gpio::Pin::PC8;
-const PIN_GREEN_LED: gpio::Pin = gpio::Pin::PC9;
+// pwm::Pin contains enums for each pin available on the microcontroller PWM
+// on the STM32F072B-DISCO board, PC6, PC7, PC8, and PC9 are leds pin and we can setup those pin as PWM output
+
+const PIN_RED_LED: pwm::Pin = pwm::Pin::PC6;
+const PIN_ORANGE_LED: pwm::Pin = pwm::Pin::PC8;
+const PIN_BLUE_LED: pwm::Pin = pwm::Pin::PC7;
+const PIN_GREEN_LED: pwm::Pin = pwm::Pin::PC9;
 
 const PIN_ANALOG: adc::Channel = adc::Channel::ADC0;
 
@@ -35,36 +35,66 @@ fn main() {
     // it set some register in the microcontroller regarding frequency of timers
     rcc::init();
 
-    // declare `led` as an output pin on PIN_LED
-    // `led` is mutable as setting the pin to high or low requires to modify it.
-    let mut red_led = gpio::Output::setup(PIN_RED_LED);
-    let mut blue_led = gpio::Output::setup(PIN_BLUE_LED);
-    let mut orange_led = gpio::Output::setup(PIN_ORANGE_LED);
-    let mut green_led = gpio::Output::setup(PIN_GREEN_LED);
+    // Declare `leds` as an output PWM
+    let red_led = pwm::Pwm::init(PIN_RED_LED);
+    let orange_led = pwm::Pwm::init(PIN_ORANGE_LED);
+    let blue_led = pwm::Pwm::init(PIN_BLUE_LED);
+    let green_led = pwm::Pwm::init(PIN_GREEN_LED);
 
+    // The PWM frequency is dedicated define the period of the duty cycle to a specific Timer (in this case Timer3)
+    // All those led are on the same timer, you have to change this value only one time for all leds
+    // So I change it for "red_led" but this frequency is set for all leds
+    red_led.set_frequency(500);
+
+    // For now I put the brightness to 0% for all leds
+    red_led.set_duty(0.0);
+    orange_led.set_duty(0.0);
+    blue_led.set_duty(0.0);
+    green_led.set_duty(0.0);
+
+    // and I enable PWM for all leds
+    red_led.enable();
+    orange_led.enable();
+    blue_led.enable();
+    green_led.enable();
+
+    // Setup the analog pin
     let analog = adc::Analog::setup(PIN_ANALOG);
-
-    //
-    pwm::init(10000); // 10_000?
-    pwm::set_duty(750); // 750?
-    pwm::enable();
 
     // in embedded your program should never end, so we loop forever
     loop {
-        if analog.read() > 512 { // 512?
-            // turn led on -> set pin to high
-            red_led.high();
-            blue_led.high();
-            orange_led.high();
-            green_led.high();
-            pwm::set_duty(750); // 750?
+        // Now I want to have a glorious nightclub effect
+        // I want to fade led and give an orientation between those 4 leds using an analog input
+
+        // save analog value
+        // analog value is between 0 and 4096
+        let direction = analog.read();
+
+        // now I will change the duty cycle depending on the direction variable on each led and by dephasing it
+        // to have a cool effect I choose a analog value apogee for each led
+        // - red_led => 0
+        // - blue_led => 4096/3 = 1365
+        // - orange_led => 4096/(2/3) = 2730
+        // -green_led => 4096
+        if direction < 1365 {
+            red_led.set_duty(100.0 - ((direction as f32 / 1365.0) * 100.0));
+            orange_led.set_duty((direction as f32 / 1365.0) * 100.0);
+            blue_led.set_duty(0.0);
+            green_led.set_duty(0.0);
         } else {
-            // turn led off -> set pin to low
-            red_led.low();
-            blue_led.low();
-            orange_led.low();
-            green_led.low();
-            pwm::set_duty(375); // 375?
+            if direction < 2730 {
+                red_led.set_duty(0.0);
+                orange_led.set_duty(100.0 - (((direction as f32 - 1365.0) / 1365.0) * 100.0));
+                blue_led.set_duty(((direction as f32 - 1365.0) / 1365.0) * 100.0);
+                green_led.set_duty(0.0);
+            } else {
+                if direction >= 2730 {
+                    red_led.set_duty(0.0);
+                    orange_led.set_duty(0.0);
+                    blue_led.set_duty(100.0 - (((direction as f32 - 2730.0) / 1365.0) * 100.0));
+                    green_led.set_duty(((direction as f32 - 2730.0) / 1365.0) * 100.0);
+                }
+            }
         }
     }
 }
