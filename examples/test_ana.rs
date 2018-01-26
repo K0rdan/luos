@@ -15,7 +15,7 @@
 // luos::hal::gpio contains specific functions and constants to access, read and write on pins
 // luos::hal::rcc contains function relative to clocks
 extern crate luos;
-use luos::hal::{gpio, adc};
+use luos::hal::{adc, gpio};
 
 // intialize constants for the pin we want to use
 // gpio::Pin contains enums for each pin available on the microcontroller
@@ -29,13 +29,10 @@ const PIN_GREEN_LED: gpio::Pin = gpio::Pin::PC9;
 // http://www.st.com/content/ccc/resource/technical/document/user_manual/3b/8d/46/57/b7/a9/49/b4/DM00099401.pdf/files/DM00099401.pdf/jcr:content/translations/en.DM00099401.pdf
 //http://www.st.com/en/evaluation-tools/32f072bdiscovery.html
 
-
 const PIN_ANALOG: adc::Channel = adc::Channel::ADC0;
-
 
 // main() is the start of our program
 fn main() {
-
     // declare `led` as an output pin on PIN_LED
     // `led` is mutable as setting the pin to high or low requires to modify it.
     let mut red_led = gpio::Output::setup(PIN_RED_LED);
@@ -47,7 +44,8 @@ fn main() {
 
     // in embedded your program should never end, so we loop forever
     loop {
-        if analog.read() > 512 { // 512?
+        // The maximum value of this analog is 4096
+        if analog.read() > 512 {
             // turn led on -> set pin to high
             red_led.high();
             blue_led.high();

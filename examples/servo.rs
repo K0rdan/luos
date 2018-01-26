@@ -16,14 +16,13 @@
 // luos::hal::adc contains specific functions to manage analogic input pin
 // luos::hal::servo contains specific functions to control a servo
 extern crate luos;
-use luos::hal::{rcc, adc, servo};
+use luos::hal::{adc, rcc, servo};
 
 // intialize constants for the pin we want to use
 // servo::Pin contains enums for each pin available for servo on the microcontroller
 // on the STM32F072B-DISCO board:
 const PIN_SERVO: servo::Pin = servo::Pin::PB4;
 const PIN_ANALOG: adc::Channel = adc::Channel::ADC0; // PA0
-
 
 // main() is the start of our program
 fn main() {
@@ -42,7 +41,7 @@ fn main() {
         // the servo can move from 0° to 180°
         // In this example we want to control the full range of the servo with the full range of the potentiometer
         // So we have to convert the analog value to a degree value
-        let degree = ((analog.read() as f32) /  4096 as f32) * 180.0;
+        let degree = ((analog.read() as f32) / 4096 as f32) * 180.0;
         // Now we can set this value
         servo.set_position(degree);
     }

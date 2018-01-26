@@ -15,7 +15,7 @@
 // luos::hal::gpio contains specific functions and constants to access, read and write on pins
 // luos::hal::rcc contains function relative to clocks
 extern crate luos;
-use luos::hal::{rcc, adc, pwm};
+use luos::hal::{adc, pwm, rcc};
 
 // intialize constants for the pin we want to use
 // pwm::Pin contains enums for each pin available on the microcontroller PWM
@@ -27,7 +27,6 @@ const PIN_BLUE_LED: pwm::Pin = pwm::Pin::PC7;
 const PIN_GREEN_LED: pwm::Pin = pwm::Pin::PC9;
 
 const PIN_ANALOG: adc::Channel = adc::Channel::ADC0;
-
 
 // main() is the start of our program
 fn main() {
