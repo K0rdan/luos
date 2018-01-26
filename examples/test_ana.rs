@@ -15,7 +15,7 @@
 // luos::hal::gpio contains specific functions and constants to access, read and write on pins
 // luos::hal::rcc contains function relative to clocks
 extern crate luos;
-use luos::hal::{gpio, rcc, adc, pwm};
+use luos::hal::{gpio, adc};
 
 // intialize constants for the pin we want to use
 // gpio::Pin contains enums for each pin available on the microcontroller
@@ -26,14 +26,15 @@ const PIN_BLUE_LED: gpio::Pin = gpio::Pin::PC7;
 const PIN_ORANGE_LED: gpio::Pin = gpio::Pin::PC8;
 const PIN_GREEN_LED: gpio::Pin = gpio::Pin::PC9;
 
+// http://www.st.com/content/ccc/resource/technical/document/user_manual/3b/8d/46/57/b7/a9/49/b4/DM00099401.pdf/files/DM00099401.pdf/jcr:content/translations/en.DM00099401.pdf
+//http://www.st.com/en/evaluation-tools/32f072bdiscovery.html
+
+
 const PIN_ANALOG: adc::Channel = adc::Channel::ADC0;
 
 
 // main() is the start of our program
 fn main() {
-    // initialize rcc
-    // it set some register in the microcontroller regarding frequency of timers
-    rcc::init();
 
     // declare `led` as an output pin on PIN_LED
     // `led` is mutable as setting the pin to high or low requires to modify it.
@@ -44,11 +45,6 @@ fn main() {
 
     let analog = adc::Analog::setup(PIN_ANALOG);
 
-    //
-    pwm::init(10000); // 10_000?
-    pwm::set_duty(750); // 750?
-    pwm::enable();
-
     // in embedded your program should never end, so we loop forever
     loop {
         if analog.read() > 512 { // 512?
@@ -57,14 +53,12 @@ fn main() {
             blue_led.high();
             orange_led.high();
             green_led.high();
-            pwm::set_duty(750); // 750?
         } else {
             // turn led off -> set pin to low
             red_led.low();
             blue_led.low();
             orange_led.low();
             green_led.low();
-            pwm::set_duty(375); // 375?
         }
     }
 }
