@@ -18,7 +18,7 @@ const PIN_LED: pwm::Pin = pwm::Pin::PC7;
 // we will use the pin PA0 on the board
 const PIN_ANALOG: adc::Pin = adc::Pin::PA0;
 // the adc are 12 bits so values range from 0 to 4095 (4096 values)
-const MAX_U12: f32 = 4095.0;
+const MAX_U12: u16 = 4095;
 
 // main() is the start of our program
 fn main() {
@@ -28,7 +28,8 @@ fn main() {
 
     // declare `led` as an output PWM
     let led = pwm::Pwm::init(PIN_LED);
-    // Set the frequency of the PWM to 500 hz
+    // We need to set the frequency of the pwm
+    // Here we arbitrarily choose to generate a pwm at 500hz
     led.set_frequency(500);
     // Set the duty cycle to 0%
     led.set_duty(0.0);
@@ -44,7 +45,7 @@ fn main() {
     // analog read return u16, and set_duty require f32
     fn potentiometer_in_percent(potentiometer_value: u16) -> f32 {
         // we first normalize analog value between 0 and 1, in f32
-        let normalized_potentiometer = potentiometer_value as f32 / MAX_U12;
+        let normalized_potentiometer = potentiometer_value as f32 / MAX_U12 as f32;
         // we return the value between 0 and 100
         normalized_potentiometer * 100.0
     }

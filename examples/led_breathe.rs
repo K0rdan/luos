@@ -24,7 +24,8 @@ fn main() {
 
     // declare `led` as an output PWM
     let led = pwm::Pwm::init(PIN_LED);
-    // Set the frequency of the PWM to 500 hz
+    // We need to set the frequency of the pwm
+    // Here we arbitrarily choose to generate a pwm at 500hz
     led.set_frequency(500);
     // Set the duty cycle to 0%
     led.set_duty(0.0);

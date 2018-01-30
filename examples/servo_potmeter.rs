@@ -24,7 +24,7 @@ const PIN_SERVO: pwm::Pin = pwm::Pin::PB4;
 // we will use the pin PA0 on the board
 const PIN_ANALOG: adc::Pin = adc::Pin::PA0;
 // the adc are 12 bits so values range from 0 to 4095 (4096 values)
-const MAX_U12: f32 = 4095.0;
+const MAX_U12: u16 = 4095;
 
 // main() is the start of our program
 fn main() {
@@ -43,7 +43,7 @@ fn main() {
     // servo.set_position requires f32 in degrees
     fn potentiometer_in_degree(potentiometer_value: u16) -> f32 {
         // we first normalize analog value between 0 and 1, in f32
-        let normalized_potentiometer = potentiometer_value as f32 / MAX_U12;
+        let normalized_potentiometer = potentiometer_value as f32 / MAX_U12 as f32;
         // we return the value between 0 and 180, in degree
         normalized_potentiometer * 180.0
     }
