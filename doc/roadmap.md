@@ -15,8 +15,9 @@ project list :
 |     Robus     |     0.1.0     |      OK       | a usable version of Robus |
 |     L0        |     0.1.0     |      OK       | a usable version of The L0 |
 |   L0 shield   |     0.1.0     |      OK       | a USB to serial shield for L0 |
+|     HAL       |     0.1.0     |      OK       | a basic hal using SVD2RUST |
 |     L0        |     0.2.0     |      WIP      | An optimized version of the board for the first prod bash |
-|     HAL       |     0.1.0     |      WIP      | a Japaric based HAL with basics perepherals such as GPIO, EXTIT, Timer, UART, PWM, and Analog |
+|     HAL       |     0.2.0     |      WIP      | a Japaric based HAL with basics perepherals such as GPIO, EXTIT, Timer, UART, PWM, and Analog |
 |   Robus-gate  |     0.1.0     |      WIP      | a hardcoded USB-gate module bypassing Luos to access Robus directly |
 |     Luos      |     0.1.0     |      WIP      | Luos basics with Robus integrated, some drivers, and units  |
 |  month robot  |       1       |      TODO     | a L0 Robotis shield |
