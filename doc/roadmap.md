@@ -6,6 +6,7 @@ If you have any question please feel free to ask us on [our forum](https://forum
 project list :
  - [**Robus**](https://github.com/pollen-robotics/robus) : Robus is a ligthweight & low-cost yet powerful modular network made to unify communications between components in hardware products.
  - [**Luos**](https://github.com/pollen-robotics/luos) : Luos is an end-to-end system to fully orchestrate your robot, all the way from hardware control to high level behaviors and Apps management.
+ - **[HAL](https://github.com/pollen-robotics/stm32f0)** : Hardware Abstraction Layer for stm32f0
  - **L0** : A tiny board used as base for your robot hardware modules
  - **L0 shield** : Shields allowing the L0 to manage devices (sensors, motors, batteries, computer, ...)
  - **month robot** : each month we create a robot elected by the community
