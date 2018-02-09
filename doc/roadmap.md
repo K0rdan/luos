@@ -1,15 +1,25 @@
 # Roadmap
 
-This is the global development roadmap of Pollen Robotics. This document is updated weekly.
-If you have any question please feel free to ask us on [our forum](https://forum.luos.io/).
+This is the global development roadmap the Luos project. 
+If you have questions or would like to see things added to the roadmap, please feel free to submit a pull request or discuss it on [our forum](https://forum.luos.io/).
 
-project list :
+This document is updated weekly to reflect progress.
+
+[**Luos**](https://github.com/pollen-robotics/luos) : Luos is an end-to-end system to fully orchestrate your robot, all the way from hardware control to high level behaviors and Apps management.
+
+The Luos project encompass many sub-projects and hardware components that need to evolve with Luos:
  - [**Robus**](https://github.com/pollen-robotics/robus) : Robus is a ligthweight & low-cost yet powerful modular network made to unify communications between components in hardware products.
- - [**Luos**](https://github.com/pollen-robotics/luos) : Luos is an end-to-end system to fully orchestrate your robot, all the way from hardware control to high level behaviors and Apps management.
  - **[HAL](https://github.com/pollen-robotics/stm32f0)** : Hardware Abstraction Layer for stm32f0
  - **L0** : A tiny board used as base for your robot hardware modules
  - **L0 shield** : Shields allowing the L0 to manage devices (sensors, motors, batteries, computer, ...)
- - **month robot** : each month we create a robot elected by the community
+ - **Robot of the Month** : each month we create a robot elected by the community
+
+Progress on the roadmap component are flagged according to their state of advancement:
+- **OK** : version finished
+- **WIP** : work in progress
+- **STDBY** : work started but in standby for now
+- **TODO** : it a previsional work to do but not started yet
+
 
 |    Project    |    version    |     state     |     comment   |
 | ------------- | ------------- | ------------- | ------------- |
@@ -28,7 +38,4 @@ project list :
 |     Luos      |     0.2.0     |      TODO     | Luos more easy to use |
 
 
-- **OK** : version finished
-- **WIP** : work in progress
-- **STDBY** : work started but in standby for now
-- **TODO** : it a previsional work to do but not started yet
+
