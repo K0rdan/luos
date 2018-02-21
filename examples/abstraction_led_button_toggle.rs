@@ -88,14 +88,17 @@ impl Button {
     // The debounce_read method does not need to use &mut because no modification to the structure elements is done
     // Note that the function return a bool, that is the state of the button
     pub fn debounce_read(&self) -> bool {
-        let first_read = self.pin.read(); // read button state
-        rcc::ms_delay(self.debouce_delay_ms); // pause the program for self.debouce_delay_ms (here 10 ms)
-        let second_read = self.pin.read(); // read button state again
+        // loop until we return a value
+        loop {
+            let first_read = self.pin.read(); // read button state
+            rcc::ms_delay(self.debouce_delay_ms); // pause the program for self.debouce_delay_ms (here 10 ms)
+            let second_read = self.pin.read(); // read button state again
 
-        if first_read == second_read {
-            second_read // if the reading are the same, return the state
-        } else {
-            self.debounce_read() // else repeat until they are the same
+            // if both reading agrees, we consider there was no bouncing and return the button state
+            if first_read == second_read {
+                return second_read;
+            }
+            // else we try again
         }
     }
 }
