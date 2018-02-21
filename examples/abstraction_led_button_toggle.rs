@@ -48,7 +48,7 @@ impl Led {
     pub fn toggle(&mut self) {
         // we read the current stored state
         match self.state {
-            true => self.pin.low(), // if true/high -> toggle and set to low
+            true => self.pin.low(),   // if true/high -> toggle and set to low
             false => self.pin.high(), // if false/low -> toggle and set to high
         }
         // finally update the current state as the opositie of the previous state
@@ -63,8 +63,8 @@ impl Led {
 
 // First, we need to create a structure to hold the necessary elements of our augemented Button
 pub struct Button {
-    pin: gpio::Input, // input pin to read the button state
-    debouce_delay_ms: u32 // this is a fixed timing used to debounced the reading of the button state
+    pin: gpio::Input,      // input pin to read the button state
+    debouce_delay_ms: u32, // this is a fixed timing used to debounced the reading of the button state
 }
 
 // Second we associate some methods to this structure
@@ -74,7 +74,7 @@ impl Button {
         // we return a Button structure
         Button {
             pin: gpio::Input::setup(pin), // with pin holding a gpio input
-            debouce_delay_ms: 10 // and a fixed value for the delay
+            debouce_delay_ms: 10,         // and a fixed value for the delay
         }
     }
 
@@ -87,15 +87,15 @@ impl Button {
 
     // The debounce_read method does not need to use &mut because no modification to the structure elements is done
     // Note that the function return a bool, that is the state of the button
-    pub fn debounce_read(&self) -> bool{
-        let first_read = self.pin.read();  // read button state
+    pub fn debounce_read(&self) -> bool {
+        let first_read = self.pin.read(); // read button state
         rcc::ms_delay(self.debouce_delay_ms); // pause the program for self.debouce_delay_ms (here 10 ms)
         let second_read = self.pin.read(); // read button state again
 
         if first_read == second_read {
             second_read // if the reading are the same, return the state
         } else {
-            self.debounce_read()  // else repeat until they are the same
+            self.debounce_read() // else repeat until they are the same
         }
     }
 }
@@ -117,8 +117,7 @@ fn main() {
             // toggle the led when the button is pressed
             led.toggle();
             // wait for the button to be released
-            while button.debounce_read() {
-            }
+            while button.debounce_read() {}
         }
     }
     // each time you press the button now, the led with toggle its state
