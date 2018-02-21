@@ -15,7 +15,7 @@ use luos::hal::{gpio, rcc};
 
 // LED iplementation
 
-// First, we need to create a structure to hold the necessary elements of our augemented Led
+// First, we need to create a structure to hold the necessary elements of our augmented Led
 pub struct Led {
     pin: gpio::Output, // ouput pin to control the led on and off
     state: bool, // state variable to store the current state of the led (on -> true, off -> false)
@@ -25,7 +25,7 @@ pub struct Led {
 impl Led {
     // Using the new function is a convention to make a sort of constructor
     // It is used to initialize the Led structure with the attached `Pin` and initialize its state.
-    // The use needs to provide a GPIO pin and an init_state for that
+    // The user needs to provide a GPIO pin and an init_state for that
     pub fn new(pin: gpio::Pin, init_state: bool) -> Led {
         // we create a led_pin variable as an Ouptut pin
         let mut led_pin = gpio::Output::setup(pin);
@@ -42,8 +42,8 @@ impl Led {
     }
 
     // We now implement a toggle method associated to a Led structure
-    // It takes as an input an adress of itself as per convention
-    // Notice that we use &mut wich indicates that elements of the structure will be changed
+    // It takes as an input a reference of itself as per convention
+    // Notice that we use &mut wich indicates that elements of the structure may be changed
     // Indeed the pin state and led state will be affected by toggle
     pub fn toggle(&mut self) {
         // we read the current stored state
@@ -51,17 +51,17 @@ impl Led {
             true => self.pin.low(),   // if true/high -> toggle and set to low
             false => self.pin.high(), // if false/low -> toggle and set to high
         }
-        // finally update the current state as the opositie of the previous state
+        // finally update the current state as the opposite of the previous state
         self.state = !self.state;
     }
 }
-// At this point we have a strcuture with associated method that define an inhenced version of a Led
+// At this point we have a structure with associated methods that define an inhenced version of a Led
 // This Led can remember its state and toggle from on to off appropriately
 // We will see how to initialize this in the main function, but let's see the button before
 
 // Button implementation
 
-// First, we need to create a structure to hold the necessary elements of our augemented Button
+// First, we need to create a structure to hold the necessary elements of our augmented Button
 pub struct Button {
     pin: gpio::Input,      // input pin to read the button state
     debouce_delay_ms: u32, // this is a fixed timing used to debounced the reading of the button state
@@ -80,7 +80,7 @@ impl Button {
 
     // We now implement a debounce_read method associated to a Button structure
     // This debounce read is needed to avoid spurious on/off transitions when pressed due to mechanical issues
-    // It leads the programs to read multiple presses in a very short time fooling the program
+    // It leads the programs to read multiple presses in a very short time
     // The method to debounce is to read the value twice in a short period of time
     // If we read twice the same value, we assume thare is not bouncing effect
     // If we don't, then we repeat the process until we get a good reading
